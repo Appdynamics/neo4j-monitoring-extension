@@ -13,14 +13,18 @@ Neo4j is a highly scalable, robust (fully ACID) native graph database. The Neo4j
 By default, a neo4j server does not have remote JMX enabled.
 Please make sure you uncomment out the following JMX parameters in the neo4j-wrapper.conf.
 
-﻿wrapper.java.additional=-Dcom.sun.management.jmxremote.port=3637
-wrapper.java.additional=-Dcom.sun.management.jmxremote.authenticate=true
-wrapper.java.additional=-Dcom.sun.management.jmxremote.ssl=false
-wrapper.java.additional=-Dcom.sun.management.jmxremote.password.file=conf/jmx.password
-wrapper.java.additional=-Dcom.sun.management.jmxremote.access.file=conf/jmx.access
+```
+    ﻿wrapper.java.additional=-Dcom.sun.management.jmxremote.port=3637
+    wrapper.java.additional=-Dcom.sun.management.jmxremote.authenticate=true
+    wrapper.java.additional=-Dcom.sun.management.jmxremote.ssl=false
+    wrapper.java.additional=-Dcom.sun.management.jmxremote.password.file=conf/jmx.password
+    wrapper.java.additional=-Dcom.sun.management.jmxremote.access.file=conf/jmx.access
 
-# Some systems cannot discover host name automatically, and need this line configured:
-wrapper.java.additional=-Djava.rmi.server.hostname=<YOUR IP>
+    # Some systems cannot discover host name automatically, and need this line configured:
+    wrapper.java.additional=-Djava.rmi.server.hostname=<YOUR IP>
+```
+
+
 
 
 ## Metrics Provided ##
