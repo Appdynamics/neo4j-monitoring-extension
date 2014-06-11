@@ -69,7 +69,7 @@ Note : Please make sure to not use tab (\t) while editing yaml files. You may wa
             displayName: "myDebian"
 
 
-        # cassandra mbeans. Exclude patterns with regex can be used to exclude any unwanted metrics.
+        # neo4j mbeans. Exclude patterns with regex can be used to exclude any unwanted metrics.
         mbeans:
           - domainName: "org.neo4j"
             excludePatterns: [
@@ -114,6 +114,6 @@ For any questions or feature request, please contact [AppDynamics Center of Exce
 **Version:** 1.0.0
 **Controller Compatibility:** 3.7+
 
-[Github]: https://github.com/Appdynamics/cassandra-monitoring-extension
+[Github]: https://github.com/Appdynamics/neo4j-monitoring-extension
 [AppDynamics Exchange]: http://community.appdynamics.com/t5/AppDynamics-eXchange/idb-p/extensions
 [AppDynamics Center of Excellence]: mailto:ace-request@appdynamics.com

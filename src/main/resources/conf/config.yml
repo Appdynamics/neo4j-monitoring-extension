@@ -12,7 +12,7 @@ servers:
     displayName: "myDebian"
 
 
-# cassandra mbeans. Exclude patterns with regex can be used to exclude any unwanted metrics.
+# neo4j mbeans. Exclude patterns with regex can be used to exclude any unwanted metrics.
 mbeans:
   - domainName: "org.neo4j"
     excludePatterns: [
