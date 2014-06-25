@@ -113,6 +113,7 @@ For any questions or feature request, please contact [AppDynamics Center of Exce
 
 **Version:** 1.0.0
 **Controller Compatibility:** 3.7+
+**Neo4j Version Tested On:** Enterprise 2.0.2
 
 [Github]: https://github.com/Appdynamics/neo4j-monitoring-extension
 [AppDynamics Exchange]: http://community.appdynamics.com/t5/AppDynamics-eXchange/idb-p/extensions
