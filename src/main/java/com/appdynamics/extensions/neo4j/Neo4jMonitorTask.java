@@ -6,6 +6,7 @@ import com.appdynamics.extensions.jmx.JMXConnectionUtil;
 import com.appdynamics.extensions.jmx.MBeanKeyPropertyEnum;
 import com.appdynamics.extensions.neo4j.config.MBeanData;
 import com.appdynamics.extensions.neo4j.config.Server;
+import com.appdynamics.extensions.util.MetricUtils;
 import com.google.common.base.Strings;
 import org.apache.log4j.Logger;
 
@@ -88,7 +89,10 @@ public class Neo4jMonitorTask implements Callable<Neo4jMetrics> {
                             if (attribute != null && attribute instanceof Number) {
                                 String metricKey = getMetricsKey(objectName,attr);
                                 if (!isKeyExcluded(metricKey, excludePatterns)) {
-                                    String attribStr = convertMetricValuesToString(attribute);
+                                    if (logger.isDebugEnabled()) {
+                                        logger.debug("Metric key:value before rounding = "+ metricKey + ":" + String.valueOf(attribute));
+                                    }
+                                    String attribStr = MetricUtils.toWholeNumberString(attribute);
                                     filteredMetrics.put(metricKey, attribStr);
                                 } else {
                                     if (logger.isDebugEnabled()) {
@@ -105,20 +109,6 @@ public class Neo4jMonitorTask implements Callable<Neo4jMetrics> {
     }
 
 
-    /**
-     * Currently, appD controller only supports Integer values. This function will round all the decimals into integers and convert them into strings.
-     * @param attribute
-     * @return
-     */
-    private String convertMetricValuesToString(Object attribute) {
-        if(attribute instanceof Double){
-            return String.valueOf(Math.round((Double) attribute));
-        }
-        else if(attribute instanceof Float){
-            return String.valueOf(Math.round((Float) attribute));
-        }
-        return attribute.toString();
-    }
 
     /**
      * Checks if the given metric key matches any exclude patterns

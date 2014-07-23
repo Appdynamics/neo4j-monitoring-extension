@@ -125,9 +125,17 @@ public class Neo4jMonitor extends AManagedMonitor {
             metricPath.append(config.getMetricPrefix()).append(nMetric.getDisplayName()).append(METRIC_SEPARATOR);
             Map<String,String> metricsForAServer = nMetric.getMetrics();
             for(Map.Entry<String,String> entry : metricsForAServer.entrySet()){
-                printCollectiveObservedCurrent(metricPath.toString() + entry.getKey(),entry.getValue());
+                printAverageAverageIndividual(metricPath.toString() + entry.getKey(),entry.getValue());
             }
         }
+    }
+
+    private void printAverageAverageIndividual(String metricPath, String metricValue) {
+        printMetric(metricPath, metricValue,
+                MetricWriter.METRIC_AGGREGATION_TYPE_AVERAGE,
+                MetricWriter.METRIC_TIME_ROLLUP_TYPE_AVERAGE,
+                MetricWriter.METRIC_CLUSTER_ROLLUP_TYPE_INDIVIDUAL
+        );
     }
 
     private void printCollectiveObservedCurrent(String metricPath, String metricValue) {
