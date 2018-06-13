@@ -62,8 +62,8 @@ public class Neo4jMonitorTask implements Callable<Neo4jMetrics> {
                 Set<ObjectInstance> allMbeans = jmxConnector.getAllMBeans();
                 if(allMbeans != null) {
                     Map<String, String> filteredMetrics = applyExcludePatternsAndExtractMetrics(allMbeans);
-                    neo4jMetrics.getMetrics().put("HEALTH_CHECK","1");
                     neo4jMetrics.setMetrics(filteredMetrics);
+                    neo4jMetrics.getMetrics().put("HEALTH_CHECK","1");
                 }
             }
         }
